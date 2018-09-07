@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="no_net_error">网络错误警告</string>
+    <string name="no_record_error">错误警告</string>
+    <string name="no_gift_error">没有gif</string>
+    <string name="after_risk_msg">wgw</string>
+</resources>

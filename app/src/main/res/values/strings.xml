@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">架构搭建</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="login">登 录</string>
+    <string name="name">手机号码/账号</string>
+    <string name="pass">登录密码</string>
+    <string name="mind">提示：使用网筹金融平台账号登录</string>
+
+</resources>

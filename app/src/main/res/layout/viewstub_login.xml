@@ -1,0 +1,102 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/login_panel"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:background="@drawable/login_bg">
+
+        <ImageView
+            android:id="@+id/login_img"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:adjustViewBounds="true"
+            android:visibility="gone"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/login_img2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:visibility="gone"
+            android:scaleType="centerCrop" />
+
+        <EditText
+            android:id="@+id/usename"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DIMEN_78DP"
+            android:layout_below="@+id/login_img"
+            android:layout_marginLeft="@dimen/DIMEN_30DP"
+            android:layout_marginRight="@dimen/DIMEN_30DP"
+            android:layout_marginTop="@dimen/DIMEN_200DP"
+            android:drawableLeft="@drawable/login_people"
+            android:drawablePadding="@dimen/DIMEN_12DP"
+            android:drawableRight="@drawable/close"
+            android:hint="@string/name"
+            android:inputType="phone"
+            android:lines="1"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textSize="@dimen/DIMEN_22DP" />
+
+        <!--<com.wcjr.ditui.presentation.view.TogglePasswordVisibilityEditText-->
+            <!--android:id="@+id/password"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="@dimen/DIMEN_78DP"-->
+            <!--android:layout_below="@+id/usename"-->
+            <!--android:layout_marginLeft="@dimen/DIMEN_30DP"-->
+            <!--android:layout_marginRight="@dimen/DIMEN_30DP"-->
+            <!--android:layout_marginTop="@dimen/DIMEN_14DP"-->
+            <!--android:drawablePadding="@dimen/DIMEN_12DP"-->
+            <!--android:hint="@string/pass"-->
+            <!--android:lines="1"-->
+            <!--android:textColorHint="@color/white"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/DIMEN_22DP" />-->
+
+        <TextView
+            android:id="@+id/error_msg"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/DIMEN_30DP"
+            android:layout_below="@+id/password"
+            android:layout_marginTop="@dimen/DIMEN_9DP"
+            android:gravity="left"
+            android:paddingLeft="@dimen/DIMEN_30DP"
+            android:text="@string/mind"
+            android:textColor="@color/login_normal"
+            android:textSize="@dimen/DIMEN_16DP"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/DIMEN_65DP"
+            android:layout_below="@+id/error_msg"
+            android:layout_marginLeft="@dimen/DIMEN_30DP"
+            android:layout_marginRight="@dimen/DIMEN_30DP"
+            android:layout_marginTop="@dimen/DIMEN_48DP"
+            android:background="@drawable/selector_login_btn"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/DIMEN_26DP" />
+
+        <TextView
+            android:id="@+id/mind"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/DIMEN_22DP"
+            android:layout_below="@+id/login"
+            android:layout_marginTop="@dimen/DIMEN_20DP"
+            android:gravity="center"
+            android:text="@string/mind"
+            android:textColor="@color/white"
+            android:textSize="@dimen/DIMEN_16DP" />
+    </RelativeLayout>
+
+</RelativeLayout>
