@@ -1,5 +1,7 @@
 package com.wcjr.buassistant.usecase;
 
+import android.content.ContentValues;
+
 import com.wcjr.buassistant.androidlibrary.base.BaseEntity;
 import com.wcjr.buassistant.data.repository.LoginRepository;
 
@@ -23,6 +25,11 @@ public class LoginCase extends BaseCase<LoginCase.LoginEntity,LoginCase.RequestV
 
     public static class LoginEntity extends BaseEntity {
 
+        public ContentValues toValues() {
+            ContentValues values = new ContentValues();
+
+            return values;
+        }
     }
     public static class RequestValues{
 
