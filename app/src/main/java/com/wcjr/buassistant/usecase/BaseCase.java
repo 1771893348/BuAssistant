@@ -1,5 +1,7 @@
 package com.wcjr.buassistant.usecase;
 
+import com.wcjr.buassistant.interfaces.InteractorCallBack;
+
 import io.reactivex.Flowable;
 
 /**
@@ -7,11 +9,11 @@ import io.reactivex.Flowable;
  * @time 2018/9/7 16:12
  * @class describe
  */
-public abstract class BaseCase<T,Params> {
+public abstract class BaseCase<T> {
 
-    public void executeHttp(Params params){
-        buildObservable(params);
+    public void executeHttp(InteractorCallBack<T> interactorCallBack){
+        buildObservable(interactorCallBack);
     }
 
-    public abstract Flowable<T> buildObservable(Params params);
+    public abstract void buildObservable(InteractorCallBack<T> interactorCallBack);
 }
