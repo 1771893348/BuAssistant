@@ -14,21 +14,32 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Response;
 
 /**
+ *
  * used to access data from the net interface
  */
 public class ApiWrapper {
     private PostExecutor mPostExecutor;
     private ThreadExecutor mThreadExecutor;
-    private static ApiWrapper INSTANCE = new ApiWrapper();
+    private static ApiWrapper INSTANCE = null;
     private static Context mContext;
+    private static APIService service;
 
-    private ApiWrapper() {
+    private ApiWrapper(Context context) {
+        mContext = context;
         mThreadExecutor = JobExecutor.getInstance();
         mPostExecutor = UIExecutor.getInstance();
+        service = RetrofitUtil.getService(mContext,APIService.class);
     }
 
     public static ApiWrapper getInstance(Context context) {
-        mContext = context;
+        if(null == INSTANCE){
+            synchronized (ApiWrapper.class){
+                if (INSTANCE == null) {
+                    INSTANCE = new ApiWrapper(context);
+                }
+            }
+        }
+
         return INSTANCE;
     }
 
@@ -41,7 +52,7 @@ public class ApiWrapper {
      * @return
      */
     public Flowable<LoginCase.LoginEntity> login(String name, String pwd, boolean sysNoticeState, String auth) {
-        return RetrofitUtil.getService(mContext).login(name, pwd, "", sysNoticeState, auth)
+        return service.login(name, pwd, "", sysNoticeState, auth)
                 .subscribeOn(Schedulers.from(mThreadExecutor))
                 .observeOn(mPostExecutor.getScheduler())
                 .map(Response::body);

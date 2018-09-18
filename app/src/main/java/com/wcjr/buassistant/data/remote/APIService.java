@@ -12,7 +12,7 @@ import retrofit2.http.POST;
 
 
 /**
- * 接口地址
+ * retrofit接口定义
  */
 public interface APIService {
     @FormUrlEncoded

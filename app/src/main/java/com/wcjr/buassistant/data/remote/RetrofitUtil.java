@@ -25,22 +25,26 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
- *
+ *封装retrofit okhttp
  * init all of the components used to access the net interface
  */
 public class RetrofitUtil {
     private static final String TAG = "WCJR_Retrofit";
 
-    private static APIService service = getRetrofit().create(APIService.class);
+//    private static APIService service = getRetrofit().create(APIService.class);
     private static Retrofit retrofit;
     private static OkHttpClient okHttpClient;
     protected static Context mContext;
 
-    public static APIService getService(Context context) {
+//    public static APIService getService(Context context) {
+//        mContext = context;
+//        return service;
+//    }
+    public static  <T> T getService(Context context,final Class<T> service){
         mContext = context;
-        return service;
+        T t = getRetrofit().create(service);
+        return t;
     }
-
     private static Retrofit getRetrofit() {
         if (retrofit == null) {
 //            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor(message -> Log.i(TAG, message));
