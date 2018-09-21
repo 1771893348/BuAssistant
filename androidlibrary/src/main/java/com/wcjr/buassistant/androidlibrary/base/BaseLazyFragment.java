@@ -46,7 +46,7 @@ public abstract class BaseLazyFragment extends Fragment {
      */
     public static final int ERROR_MSG_NO_AFTER_RISK = 4;
 
-    private View parentView;
+    private View parentView = null;
 
     private FragmentActivity activity;
 
@@ -85,10 +85,10 @@ public abstract class BaseLazyFragment extends Fragment {
         activity = getSupportActivity();
 
         createDialog();
-
+        initView(parentView);
         return parentView;
     }
-
+    public abstract void initView(View view);
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

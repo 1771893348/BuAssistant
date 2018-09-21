@@ -1,4 +1,4 @@
-package com.wcjr.buassistant.data.remote;
+package com.wcjr.buassistant.data.remote.api;
 
 
 import com.wcjr.buassistant.androidlibrary.common.CommonUrls;

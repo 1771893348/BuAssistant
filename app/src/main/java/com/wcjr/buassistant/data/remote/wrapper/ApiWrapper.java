@@ -1,8 +1,10 @@
-package com.wcjr.buassistant.data.remote;
+package com.wcjr.buassistant.data.remote.wrapper;
 
 
 import android.content.Context;
 
+import com.wcjr.buassistant.data.remote.RetrofitUtil;
+import com.wcjr.buassistant.data.remote.api.APIService;
 import com.wcjr.buassistant.executors.JobExecutor;
 import com.wcjr.buassistant.executors.PostExecutor;
 import com.wcjr.buassistant.executors.ThreadExecutor;

@@ -1,8 +1,11 @@
 package com.wcjr.buassistant.usecase;
 
+import android.annotation.SuppressLint;
+
 import com.wcjr.buassistant.interfaces.InteractorCallBack;
 
 import io.reactivex.Flowable;
+import io.reactivex.functions.Consumer;
 
 /**
  * @author wgw
@@ -11,9 +14,16 @@ import io.reactivex.Flowable;
  */
 public abstract class BaseCase<T> {
 
-    public void executeHttp(InteractorCallBack<T> interactorCallBack){
-        buildObservable(interactorCallBack);
+    @SuppressLint("CheckResult")
+    protected final void executeHttp(InteractorCallBack<T> interactorCallBack){
+        buildObservable().subscribe(interactorCallBack::accept);
+//        buildObservable().subscribe(new Consumer<T>() {
+//            @Override
+//            public void accept(T t) throws Exception {
+//                interactorCallBack.accept(t);
+//            }
+//        });
     }
 
-    public abstract void buildObservable(InteractorCallBack<T> interactorCallBack);
+    public abstract Flowable<T> buildObservable();
 }

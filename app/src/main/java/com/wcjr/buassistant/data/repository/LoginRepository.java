@@ -2,11 +2,10 @@ package com.wcjr.buassistant.data.repository;
 
 
 import com.wcjr.buassistant.BaseApplication;
-import com.wcjr.buassistant.data.remote.ApiWrapper;
+import com.wcjr.buassistant.data.remote.wrapper.ApiWrapper;
 import com.wcjr.buassistant.usecase.LoginCase;
 
 import io.reactivex.Flowable;
-import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;

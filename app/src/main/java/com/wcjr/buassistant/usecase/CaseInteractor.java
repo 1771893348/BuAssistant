@@ -9,7 +9,7 @@ import com.wcjr.buassistant.interfaces.InteractorCallBack;
  */
 public class CaseInteractor{
 
-    public static <T extends BaseCase>void exeCase(T t, InteractorCallBack<T> interactorCallBack){
+    public static <T extends BaseCase,B>void exeCase(T t, InteractorCallBack<B> interactorCallBack){
         t.executeHttp(interactorCallBack);
     }
 }

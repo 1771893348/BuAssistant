@@ -23,14 +23,8 @@ public class LoginCase extends BaseCase<LoginCase.LoginEntity>{
         requestValues = new RequestValues();
     }
     @Override
-    public void buildObservable(InteractorCallBack<LoginEntity> interactorCallBack) {
-        mLoginRepository.login(requestValues.name,requestValues.pwd,false,"").subscribe(new Consumer<LoginEntity>() {
-            @Override
-            public void accept(LoginEntity loginEntity) throws Exception {
-                interactorCallBack.accept(loginEntity);
-            }
-
-        });
+    public Flowable<LoginEntity> buildObservable() {
+       return mLoginRepository.login(requestValues.name,requestValues.pwd,false,"");
     }
 
     public static class LoginEntity extends BaseEntity {
