@@ -1,4 +1,4 @@
-package com.wcjr.buassistant.usecase;
+package com.wcjr.buassistant.usecase.base;
 
 import com.wcjr.buassistant.interfaces.InteractorCallBack;
 
@@ -9,7 +9,7 @@ import com.wcjr.buassistant.interfaces.InteractorCallBack;
  */
 public class CaseInteractor{
 
-    public static <T extends BaseCase,B>void exeCase(T t, InteractorCallBack<B> interactorCallBack){
+    public static <T extends CaseInteface,B>void exeCase(T t, InteractorCallBack<B> interactorCallBack){
         t.executeHttp(interactorCallBack);
     }
 }

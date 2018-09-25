@@ -1,7 +1,7 @@
 package com.wcjr.buassistant.modules.paymoney
 
 import com.wcjr.buassistant.interfaces.InteractorCallBack
-import com.wcjr.buassistant.usecase.CaseInteractor
+import com.wcjr.buassistant.usecase.base.CaseInteractor
 import com.wcjr.buassistant.usecase.LoginCase
 
 /**

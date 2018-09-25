@@ -4,17 +4,16 @@ import android.content.ContentValues;
 
 import com.wcjr.buassistant.androidlibrary.base.BaseEntity;
 import com.wcjr.buassistant.data.repository.LoginRepository;
-import com.wcjr.buassistant.interfaces.InteractorCallBack;
+import com.wcjr.buassistant.usecase.base.BaseCase;
 
 import io.reactivex.Flowable;
-import io.reactivex.functions.Consumer;
 
 /**
  * @author wgw
  * @time 2018/9/7 16:06
  * @class describe
  */
-public class LoginCase extends BaseCase<LoginCase.LoginEntity>{
+public class LoginCase extends BaseCase<LoginCase.LoginEntity> {
 
     private LoginRepository mLoginRepository;
     public RequestValues requestValues;
@@ -23,7 +22,7 @@ public class LoginCase extends BaseCase<LoginCase.LoginEntity>{
         requestValues = new RequestValues();
     }
     @Override
-    public Flowable<LoginEntity> buildObservable() {
+    protected Flowable<LoginEntity> buildObservable() {
        return mLoginRepository.login(requestValues.name,requestValues.pwd,false,"");
     }
 
