@@ -2,10 +2,17 @@ package com.wcjr.buassistant.androidlibrary.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
+
+import java.util.List;
 
 /**
  * @author wgw
@@ -36,5 +43,23 @@ public class Funs {
 
     public static void showToastCenter(Context context,String msg){
         Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
+    }
+
+    public void jump(Activity activity,String url, String parm, int animId){
+
+
+        Intent intent=new Intent("", Uri.parse(url));
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.putExtra("", parm);
+
+        PackageManager packageManager=activity.getPackageManager();
+        List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(intent, 0);
+
+        if (! resolveInfos.isEmpty())
+        {
+            activity.startActivity(intent);
+//            selectTranlateAnim(activity, animId);
+        }else {
+        }
     }
 }
