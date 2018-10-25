@@ -38,6 +38,10 @@
             android:windowSoftInputMode="adjustResize|stateHidden" >
         </activity>
     </application>
+    <!-- 闪光灯权限 -->
+   <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <!-- 振动器权限 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
