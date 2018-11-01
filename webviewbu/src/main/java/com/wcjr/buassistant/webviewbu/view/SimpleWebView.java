@@ -17,6 +17,7 @@ import java.util.Map;
  * @author wgw
  * @time 2018/11/1 11:11
  * @class describe
+ * https://blog.csdn.net/qq_35070105/article/details/80047595
  */
 public class SimpleWebView extends WebView {
     public SimpleWebView(Context context) {
