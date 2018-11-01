@@ -4,6 +4,10 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
 
+import com.tencent.smtt.export.external.interfaces.SslError;
+import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
+import com.tencent.smtt.export.external.interfaces.WebResourceError;
+import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
 import com.tencent.smtt.export.external.interfaces.WebResourceResponse;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebSettings;
@@ -75,7 +79,7 @@ public class SimpleWebView extends WebView {
 //        private SimpleLoadingDialog loadingDialog;
 
         @Override
-        public com.tencent.smtt.export.external.interfaces.WebResourceResponse shouldInterceptRequest(com.tencent.smtt.sdk.WebView webView, String url) {
+        public WebResourceResponse shouldInterceptRequest(WebView webView, String url) {
             //做广告拦截，ADFIlterTool 为广告拦截工具类
             if (!ADFilterTool.hasAd(webView.getContext(),url)){
                 return super.shouldInterceptRequest(webView, url);
@@ -87,13 +91,13 @@ public class SimpleWebView extends WebView {
          * 防止加载网页时调起系统浏览器
          */
         @Override
-        public boolean shouldOverrideUrlLoading(com.tencent.smtt.sdk.WebView webView, String url) {
+        public boolean shouldOverrideUrlLoading(WebView webView, String url) {
             webView.loadUrl(url);
             return true;
         }
         //在开始的时候，开始loadingDialog
         @Override
-        public void onPageStarted(com.tencent.smtt.sdk.WebView webView, String s, Bitmap bitmap) {
+        public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
             super.onPageStarted(webView, s, bitmap);
             try{
 //                loadingDialog = new SimpleLoadingDialog(webView.getContext(),true);
@@ -102,7 +106,7 @@ public class SimpleWebView extends WebView {
         }
         //在页面加载结束的时候，关闭LoadingDialog
         @Override
-        public void onPageFinished(com.tencent.smtt.sdk.WebView webView, String s) {
+        public void onPageFinished(WebView webView, String s) {
             super.onPageFinished(webView, s);
             try {
 //
@@ -111,12 +115,12 @@ public class SimpleWebView extends WebView {
         }
 
         @Override
-        public void onReceivedError(com.tencent.smtt.sdk.WebView webView, com.tencent.smtt.export.external.interfaces.WebResourceRequest webResourceRequest, com.tencent.smtt.export.external.interfaces.WebResourceError webResourceError) {
+        public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
             super.onReceivedError(webView, webResourceRequest, webResourceError);
         }
 
         @Override
-        public void onReceivedSslError(com.tencent.smtt.sdk.WebView webView, com.tencent.smtt.export.external.interfaces.SslErrorHandler sslErrorHandler, com.tencent.smtt.export.external.interfaces.SslError sslError) {
+        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             sslErrorHandler.proceed();
         }
 
