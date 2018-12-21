@@ -1,2 +1,2 @@
-include ':app', ':androidlibrary', ':webviewbu'
+include ':app', ':androidlibrary', ':webviewbu', ':httplibary'
 include ':amm_sdk_sample'
