@@ -1,6 +1,6 @@
 package com.wcjr.buassistant.modules.home
 
-import android.app.Activity
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
