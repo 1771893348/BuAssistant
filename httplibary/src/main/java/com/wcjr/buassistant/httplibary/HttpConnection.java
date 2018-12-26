@@ -1,6 +1,8 @@
 package com.wcjr.buassistant.httplibary;
 
-import android.net.Uri;
+import android.os.Build;
+
+import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -14,9 +16,27 @@ import java.net.URL;
  * @time 2018/12/21 9:22
  * @class describe
  */
-public class HttpConnection {
+public class HttpConnection{
+    HttpCallBack mHttpCallBack;
+    public void setCallBack(HttpCallBack httpCallBack){
+        mHttpCallBack = httpCallBack;
+    }
 
-    private void HttpQuestPost(String path,byte[] params,String httpType){
+    public<T> void Post(String path,T bean ){
+        byte bytes[] = null;
+        if(null != bean){
+            Gson gson = new Gson();
+            bytes = gson.toJson(bean).getBytes();
+        }
+
+        HttpQuest(path,bytes,"POST");
+    }
+
+    public void Get(String path){
+        HttpQuest(path,null,"GET");
+    }
+
+    private void HttpQuest(String path,byte[] params,String httpType){
         try {
             HttpURLConnection connection = getConnection(path,httpType);
             connection.connect();
@@ -32,11 +52,14 @@ public class HttpConnection {
 
                 String str = turnStreamToString(inputStream);
                 inputStream.close();
-
+                mHttpCallBack.success(str);
+            }else {
+                mHttpCallBack.fail(connection.getResponseMessage());
             }
             connection.disconnect();
         } catch (Exception e) {
             e.printStackTrace();
+            mHttpCallBack.fail(e.getMessage());
         }
 
     }
@@ -65,5 +88,9 @@ public class HttpConnection {
         connection.setReadTimeout(10*1000);
         connection.setUseCaches(true);
         return connection;
+    }
+
+    static class HttpBuilder{
+
     }
 }
