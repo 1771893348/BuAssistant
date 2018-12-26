@@ -18,8 +18,6 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.RemoteViews
 import com.wcjr.buassistant.R
-import com.wcjr.buassistant.androidlibrary.common.ToastBu
-import com.wcjr.buassistant.androidlibrary.utils.WGWLog
 import com.wcjr.buassistant.modules.home.HomePage
 
 class MainActivity : FragmentActivity(),NavigationView.OnNavigationItemSelectedListener {

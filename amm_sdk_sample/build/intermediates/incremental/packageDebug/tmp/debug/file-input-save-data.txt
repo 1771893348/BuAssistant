@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Dec 24 15:04:45 CST 2018
+#Wed Dec 26 10:35:54 CST 2018
 1.base=E\:\\android\\android_project\\BuAssistant\\amm_sdk_sample\\build\\intermediates\\transforms\\dexMerger\\debug\\1
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY
