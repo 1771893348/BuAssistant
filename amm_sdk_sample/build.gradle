@@ -1,0 +1,40 @@
+if(isPlugin.toBoolean()){
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
+}
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        if(isPlugin.toBoolean()){
+            applicationId "net.sourceforge.simcpux"
+        }
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.minSdkVersion
+        multiDexEnabled true
+    }
+    //支持httpclient
+    useLibrary 'org.apache.http.legacy'
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    sourceSets {
+        main {
+            if (isPlugin.toBoolean()) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation files('libs/libammsdk.jar')
+//    implementation files('libs/wechat-sdk-android-with-mta-1.0.2.jar')
+}
