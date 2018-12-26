@@ -1,5 +1,7 @@
 package com.wcjr.buassistant.httplibary;
 
+import android.os.Build;
+
 import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
@@ -88,4 +90,7 @@ public class HttpConnection{
         return connection;
     }
 
+    static class HttpBuilder{
+
+    }
 }
