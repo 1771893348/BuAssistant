@@ -22,12 +22,12 @@ public class HttpConnection{
         mHttpCallBack = httpCallBack;
     }
 
-    public<T> void Post(String path,T bean ){
-        byte bytes[] = null;
-        if(null != bean){
-            Gson gson = new Gson();
-            bytes = gson.toJson(bean).getBytes();
-        }
+    public void Post(String path,byte bytes[]){
+//        byte bytes[] = null;
+//        if(null != bean){
+//            Gson gson = new Gson();
+//            bytes = gson.toJson(bean).getBytes();
+//        }
 
         HttpQuest(path,bytes,"POST");
     }
