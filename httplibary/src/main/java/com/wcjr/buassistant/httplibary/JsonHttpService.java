@@ -8,8 +8,8 @@ package com.wcjr.buassistant.httplibary;
 public class JsonHttpService implements HttpService{
     private String mUrl;
     private byte[] mData;
-    private HttpCallBack mHttpCallBack;
     private HttpConnection mHttpConnection;
+    private String mType = "POST";
     public JsonHttpService(){
         mHttpConnection = new HttpConnection();
     }
@@ -25,11 +25,20 @@ public class JsonHttpService implements HttpService{
 
     @Override
     public void setListener(HttpCallBack httpCallBack) {
-        this.mHttpCallBack = httpCallBack;
         mHttpConnection.setCallBack(httpCallBack);
     }
 
     @Override
+    public void setType(String type) {
+        mType = type;
+    }
+
+    @Override
     public void execute() {
+        if (mType.equals("GET")){
+            mHttpConnection.Get(mUrl);
+        }else {
+            mHttpConnection.Post(mUrl,mData);
+        }
     }
 }

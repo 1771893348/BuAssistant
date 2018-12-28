@@ -5,7 +5,7 @@ package com.wcjr.buassistant.httplibary;
  * @time 2018/12/27 10:33
  * @class describe
  */
-public class MyRunnable implements Runnable {
+abstract class MyRunnable implements Runnable {
     private String threadName = "task:";
     private int rejectNum = 0;
     public MyRunnable(){

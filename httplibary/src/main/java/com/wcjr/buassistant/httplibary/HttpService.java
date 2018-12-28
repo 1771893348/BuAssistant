@@ -9,5 +9,6 @@ public interface HttpService {
      void setUrl(String path);
      void  setData(byte[] data);
      void setListener(HttpCallBack httpCallBack);
+     void setType(String type);
      void execute();
 }
